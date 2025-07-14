@@ -225,5 +225,20 @@ void MainWindow::on_extendTask1Button_clicked()
     double cost = 0;
     int latePackages = 0;
     deliveryManager->calculateExtendTask1(cost, latePackages);
-    displayResults(QString("扩展任务一结果:\n总配送成本: %1\n未按时送达包裹数: %2").arg(cost).arg(latePackages));
+      displayResults(QString("扩展任务一结果:\n总配送成本: %1\n未按时送达包裹数: %2").arg(cost).arg(latePackages));
+}
+
+void MainWindow::on_extendTask2Button_clicked()
+{
+    if (!deliveryManager->hasPackages()) {
+        QMessageBox::warning(this, "错误", "请先导入包裹数据!");
+        return;
+    }
+
+    int maxBatch = ui->batchSizeSpin->value();
+    int interval = ui->intervalSpin->value();
+
+    double dissatisfaction = 0;
+    deliveryManager->calculateExtendTask2(maxBatch, interval, dissatisfaction);
+    displayResults(QString("扩展任务二结果:\n总不满意度: %1").arg(dissatisfaction));
 }
