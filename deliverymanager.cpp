@@ -187,6 +187,45 @@ void DeliveryManager::calculateExtendTask1(double& totalCost, int& latePackages)
     latePackages = late1 + late2;
 }
 
+void DeliveryManager::calculateExtendTask2(int maxBatch, int intervalMinutes, double& dissatisfaction)
+{
+    dissatisfaction = 0;
+    if (packages.isEmpty()) return;
+
+    QVector<Package> pkgs = packages;
+    std::sort(pkgs.begin(), pkgs.end(), [](const Package& a, const Package& b) {
+        return a.arrivalTime < b.arrivalTime;
+    });
+
+    QList<Package> waiting;
+    int idx = 0;
+    QTime lastShip = pkgs.first().arrivalTime.addSecs(-intervalMinutes * 60);
+
+    while (idx < pkgs.size() || !waiting.isEmpty()) {
+        QTime nextTime = lastShip.addSecs(intervalMinutes * 60);
+        if (idx < pkgs.size() && nextTime < pkgs[idx].arrivalTime)
+            nextTime = pkgs[idx].arrivalTime;
+
+        while (idx < pkgs.size() && pkgs[idx].arrivalTime <= nextTime) {
+            waiting.append(pkgs[idx]);
+            ++idx;
+        }
+
+        if (waiting.isEmpty()) {
+            continue;
+        }
+
+        QTime shipTime = nextTime;
+        lastShip = shipTime;
+
+        int shipCount = std::min(maxBatch, waiting.size());
+        for (int i = 0; i < shipCount; ++i) {
+            const Package pkg = waiting.takeFirst();
+            dissatisfaction += pkg.arrivalTime.secsTo(shipTime) / 60.0;
+        }
+    }
+}
+
 double DeliveryManager::dijkstra(int start, int end, QVector<int>& pathNodes)
 {
     pathNodes.clear();

@@ -33,6 +33,9 @@ public:
     // 扩展任务一：多车配送优化
     void calculateExtendTask1(double& totalCost, int& latePackages);
 
+    // 扩展任务二：最小化发货等待时间
+    void calculateExtendTask2(int maxBatch, int intervalMinutes, double& dissatisfaction);
+
 private:
     MapGraph map;               // 地图数据
     QVector<Package> packages;  // 包裹数据
