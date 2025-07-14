@@ -1,0 +1,22 @@
+QMAKE_CXX.QT_COMPILER_STDCXX = 201703L
+QMAKE_CXX.QMAKE_GCC_MAJOR_VERSION = 14
+QMAKE_CXX.QMAKE_GCC_MINOR_VERSION = 2
+QMAKE_CXX.QMAKE_GCC_PATCH_VERSION = 0
+QMAKE_CXX.COMPILER_MACROS = \
+    QT_COMPILER_STDCXX \
+    QMAKE_GCC_MAJOR_VERSION \
+    QMAKE_GCC_MINOR_VERSION \
+    QMAKE_GCC_PATCH_VERSION
+QMAKE_CXX.INCDIRS = \
+    D:/Xu/APP/SFML/winlibs-x86_64-posix-seh-gcc-14.2.0-mingw-w64ucrt-12.0.0-r2/mingw64/include/c++/14.2.0 \
+    D:/Xu/APP/SFML/winlibs-x86_64-posix-seh-gcc-14.2.0-mingw-w64ucrt-12.0.0-r2/mingw64/include/c++/14.2.0/x86_64-w64-mingw32 \
+    D:/Xu/APP/SFML/winlibs-x86_64-posix-seh-gcc-14.2.0-mingw-w64ucrt-12.0.0-r2/mingw64/include/c++/14.2.0/backward \
+    D:/Xu/APP/SFML/winlibs-x86_64-posix-seh-gcc-14.2.0-mingw-w64ucrt-12.0.0-r2/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include \
+    D:/Xu/APP/SFML/winlibs-x86_64-posix-seh-gcc-14.2.0-mingw-w64ucrt-12.0.0-r2/mingw64/include \
+    D:/Xu/APP/SFML/winlibs-x86_64-posix-seh-gcc-14.2.0-mingw-w64ucrt-12.0.0-r2/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed \
+    D:/Xu/APP/SFML/winlibs-x86_64-posix-seh-gcc-14.2.0-mingw-w64ucrt-12.0.0-r2/mingw64/x86_64-w64-mingw32/include
+QMAKE_CXX.LIBDIRS = \
+    D:/Xu/APP/SFML/winlibs-x86_64-posix-seh-gcc-14.2.0-mingw-w64ucrt-12.0.0-r2/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0 \
+    D:/Xu/APP/SFML/winlibs-x86_64-posix-seh-gcc-14.2.0-mingw-w64ucrt-12.0.0-r2/mingw64/lib/gcc \
+    D:/Xu/APP/SFML/winlibs-x86_64-posix-seh-gcc-14.2.0-mingw-w64ucrt-12.0.0-r2/mingw64/x86_64-w64-mingw32/lib \
+    D:/Xu/APP/SFML/winlibs-x86_64-posix-seh-gcc-14.2.0-mingw-w64ucrt-12.0.0-r2/mingw64/lib
